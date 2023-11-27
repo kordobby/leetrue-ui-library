@@ -23,7 +23,9 @@
     "baseUrl": "./src",
     "paths": {
       "@/*": ["src/*"]
-    }
+    },
+
+    "jsxImportSource": "@emotion/react"
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
