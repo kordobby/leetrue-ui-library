@@ -16,10 +16,18 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "eslint-config-prettier",
     "plugin:react/recommended",
+    "plugin:storybook/recommended",
   ],
   plugins: ["@typescript-eslint", "import", "prettier", "react", "react-hooks", "@emotion", "react-refresh"],
   settings: { react: { version: "detect" } },
   rules: {
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        devDependencies: ["**/stories/**"],
+        optionalDependencies: false,
+      },
+    ],
     "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
     "prettier/prettier": "error",
     "no-implicit-coercion": "error",
