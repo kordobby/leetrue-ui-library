@@ -1,6 +1,7 @@
 import { css } from "@emotion/react";
+import Button from "component/@core/Button";
 
-const headerStyle = css`
+const style = css`
   position: fixed;
   top: 0;
   height: 48px;
@@ -13,14 +14,18 @@ const headerStyle = css`
 
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 0 16px;
 `;
 
 const logoStyle = css``;
 export function Header() {
   return (
-    <div css={headerStyle}>
+    <div css={style}>
       <div css={logoStyle}>LEETRUE</div>
+      <Button block={false} btnType="primary" onClick={() => alert("move!")}>
+        Docs
+      </Button>
     </div>
   );
 }
