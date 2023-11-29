@@ -3,6 +3,8 @@ import { Header } from "component/layout/Header";
 import { Sider } from "component/layout/Sider";
 import { Main } from "component/layout/Main";
 import { css } from "@emotion/react";
+import Input from "component/@core/Input";
+import Button from "component/@core/Button";
 
 const pageLayout = css`
   display: flex;
@@ -11,6 +13,8 @@ const pageLayout = css`
   box-sizing: border-box;
   width: 100vh;
   height: 100vh;
+
+  flex-direction: column;
 `;
 
 function App() {
