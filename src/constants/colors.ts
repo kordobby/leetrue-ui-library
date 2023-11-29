@@ -16,6 +16,8 @@ const colors = {
 
   primary: "#6E49E7",
   secondary: "#F9F2FF",
+
+  outline: "#f0deff",
 };
 
 export default colors;
