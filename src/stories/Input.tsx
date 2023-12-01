@@ -1,4 +1,4 @@
-import Input, { InputSizeType } from "component/@core/Input";
+import Input, { InputSizeType } from "components/@elements/Input";
 import { HTMLAttributes, ReactNode } from "react";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {

@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import Button from "component/@core/Button";
+import Button from "components/@elements/Button";
 
 const style = css`
   position: fixed;
