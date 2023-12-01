@@ -12,7 +12,7 @@
 - 스낵바
 - 이미지슬라이드
 - 캐러셀
-- [모달](!https://github.com/kordobby/leetrue-ui-library/tree/main/src/components/%40core)
+- [모달](https://github.com/kordobby/leetrue-ui-library/tree/main/src/components/%40core)
 - 팝오버
 - 갤러리(모달)
 - 셀렉트박스
