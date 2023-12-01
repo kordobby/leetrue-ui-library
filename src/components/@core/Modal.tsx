@@ -135,23 +135,3 @@ Modal.Portal = ModalPortal;
 Modal.Header = ModalHeader;
 Modal.Body = ModalBody;
 Modal.Footer = ModalFooter;
-
-/**
-             <Modal.Portal>
-              <Modal open={open} onClose={closeModal}>
-                <Modal.Header>제목</Modal.Header>
-                <Modal.Body>
-                  <span>와주셔서 감사합니다.</span>
-                  <ul>
-                    <li>앙녕</li>
-                    <li>앙녕</li>
-                    <li>앙녕</li>
-                  </ul>
-                </Modal.Body>
-                <Modal.Footer>
-                  <Button onClick={closeModal}>닫기</Button>
-                  <Button onClick={closeModal}>닫기</Button>
-                </Modal.Footer>
-              </Modal>
-            </Modal.Portal>
- */
