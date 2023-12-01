@@ -1,4 +1,4 @@
-import { Header as UIHeader } from "component/layout/Header";
+import { Header as UIHeader } from "components/layout/Header";
 
 import "./header.css";
 

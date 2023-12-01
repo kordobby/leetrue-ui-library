@@ -1,5 +1,4 @@
-import { ButtonHTMLAttributes, Ref, forwardRef } from "react";
-import { useId } from "react";
+import { ButtonHTMLAttributes, Ref, forwardRef, useId } from "react";
 import { css } from "@emotion/react";
 import colors from "constants/colors";
 
@@ -46,7 +45,7 @@ export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const Button = forwardRef((props: Props, ref: Ref<HTMLButtonElement>) => {
-  const { btnType = "default", btnSize = "md", block = true, children, ...rest } = props;
+  const { btnType = "default", btnSize = "md", block = false, children, ...rest } = props;
   const id = useId();
   return (
     <button
@@ -59,6 +58,7 @@ const Button = forwardRef((props: Props, ref: Ref<HTMLButtonElement>) => {
         justify-content: center;
         border-radius: 4px;
         width: ${block ? "100%" : "auto"};
+        min-width: ${btnSize !== "sm" && "80px"};
         ${buttonSizeStyle[btnSize]}
         ${buttonStyle[btnType]}
         &:focus {
