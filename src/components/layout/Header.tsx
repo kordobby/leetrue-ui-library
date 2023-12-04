@@ -1,5 +1,8 @@
 import { css } from "@emotion/react";
+import * as Modal from "components/@core/modal/Modal";
+import ModalRenderProps from "components/@core/modal/ModalRenderProps";
 import Button from "components/@elements/Button";
+import { useModal } from "hooks/useModal";
 
 const style = css`
   position: fixed;
@@ -20,12 +23,25 @@ const style = css`
 
 const logoStyle = css``;
 export function Header() {
+  const modal = useModal();
   return (
     <div css={style}>
       <div css={logoStyle}>LEETRUE</div>
-      <Button block={false} btnType="primary" onClick={() => alert("move!")}>
-        Docs
-      </Button>
+      <Button onClick={modal.onOpen}></Button>
+      <Modal.Root context={modal}>
+        <Modal.Trigger block={false} btnType="primary">
+          Docs
+        </Modal.Trigger>
+        <Modal.Portal>
+          <Modal.Layout modalType="ALERT">
+            <Modal.Header>제목</Modal.Header>
+            <Modal.Body>내용이 들어갑니다.</Modal.Body>
+            <Modal.Footer>
+              <Modal.Trigger btnType="default">Hello</Modal.Trigger>
+            </Modal.Footer>
+          </Modal.Layout>
+        </Modal.Portal>
+      </Modal.Root>
     </div>
   );
 }

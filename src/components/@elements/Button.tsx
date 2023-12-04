@@ -38,13 +38,13 @@ const buttonSizeStyle = {
   `,
 };
 
-export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   block?: boolean;
   btnType?: ButtonType;
   btnSize?: ButtonSizeType;
 }
 
-const Button = forwardRef((props: Props, ref: Ref<HTMLButtonElement>) => {
+const Button = forwardRef((props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
   const { btnType = "default", btnSize = "md", block = false, children, ...rest } = props;
   const id = useId();
   return (
