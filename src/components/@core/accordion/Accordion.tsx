@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 import colors from "constants/colors";
-import { PropsWithChildren, createContext, useCallback, useContext, useRef, useState } from "react";
+import { PropsWithChildren, createContext, useCallback, useContext, useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 interface AccordionContextType {
@@ -55,7 +55,7 @@ interface AccordionItemProps extends PropsWithChildren {
   value: string;
 }
 
-const AccordionItemContext = createContext<{ value: string }>({ value: "" });
+const AccordionItemContext = createContext<string>("");
 
 const useAccordionItemContext = () => {
   const context = useContext(AccordionItemContext);
@@ -68,7 +68,7 @@ const useAccordionItemContext = () => {
 
 function AccordionItem({ value, children }: AccordionItemProps) {
   return (
-    <AccordionItemContext.Provider value={{ value }}>
+    <AccordionItemContext.Provider value={value}>
       <div
         css={css`
           min-width: 300px;
@@ -79,8 +79,8 @@ function AccordionItem({ value, children }: AccordionItemProps) {
             border-top-right-radius: 4px;
 
             .trigger {
-              border-top-left-radius: 4px;
-              border-top-right-radius: 4px;
+              border-top-left-radius: 3px;
+              border-top-right-radius: 3px;
             }
           }
           &:last-child {
@@ -88,8 +88,8 @@ function AccordionItem({ value, children }: AccordionItemProps) {
             border-bottom-right-radius: 4px;
             border-bottom: 1px solid ${colors.gray300};
             .trigger {
-              border-bottom-left-radius: 4px;
-              border-bottom-right-radius: 4px;
+              border-bottom-left-radius: 3px;
+              border-bottom-right-radius: 3px;
             }
           }
         `}
@@ -100,9 +100,9 @@ function AccordionItem({ value, children }: AccordionItemProps) {
   );
 }
 function AccordionTrigger({ children }: { children: string }) {
-  const item = useAccordionContext();
-  const { value } = useAccordionItemContext();
-  const isExpanded = item.value.has(value);
+  const { value, setter } = useAccordionContext();
+  const label = useAccordionItemContext();
+  const isExpanded = value.has(label);
 
   return (
     <div
@@ -128,7 +128,7 @@ function AccordionTrigger({ children }: { children: string }) {
         }
       `}
       onClick={() => {
-        item.setter(value);
+        setter(label);
       }}
     >
       <span>{children}</span>
@@ -138,15 +138,12 @@ function AccordionTrigger({ children }: { children: string }) {
 }
 
 function AccordionContent({ children }: PropsWithChildren) {
-  const item = useAccordionContext();
-  const ref = useRef<HTMLDivElement>(null);
-  const { value } = useAccordionItemContext();
-
-  const isExpanded = item.value.has(value);
+  const { value } = useAccordionContext();
+  const label = useAccordionItemContext();
+  const isExpanded = value.has(label);
 
   return (
     <div
-      ref={ref}
       css={css`
         max-height: ${!isExpanded ? "0px" : "1000px"};
         overflow: hidden;
