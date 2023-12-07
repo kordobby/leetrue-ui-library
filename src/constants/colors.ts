@@ -18,6 +18,7 @@ const colors = {
   secondary: "#F9F2FF",
 
   outline: "#f0deff",
+  heading: "#5e42bd",
 };
 
 export default colors;

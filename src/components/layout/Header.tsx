@@ -1,6 +1,5 @@
 import { css } from "@emotion/react";
 import * as Modal from "components/@core/modal/Modal";
-import ModalRenderProps from "components/@core/modal/ModalRenderProps";
 import Button from "components/@elements/Button";
 import { useModal } from "hooks/useModal";
 
