@@ -1,6 +1,7 @@
 import { css } from "@emotion/react";
 import colors from "constants/colors";
-import { PropsWithChildren, RefObject, createContext, useCallback, useContext, useRef, useState } from "react";
+import { PropsWithChildren, createContext, useCallback, useContext, useRef, useState } from "react";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 interface AccordionContextType {
   value: Set<string>;
@@ -40,7 +41,8 @@ function AccordionRoot(props: PropsWithChildren) {
     <AccordionContext.Provider value={{ value: item, setter }}>
       <div
         css={css`
-          transition: heigth 0.5 ease-in-out;
+          box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+          border-radius: 4px;
         `}
       >
         {props.children}
@@ -71,13 +73,24 @@ function AccordionItem({ value, children }: AccordionItemProps) {
         css={css`
           min-width: 300px;
           border: 1px solid ${colors.gray300};
+          border-bottom: none;
           &:first-child {
             border-top-left-radius: 4px;
             border-top-right-radius: 4px;
+
+            .trigger {
+              border-top-left-radius: 4px;
+              border-top-right-radius: 4px;
+            }
           }
           &:last-child {
             border-bottom-left-radius: 4px;
             border-bottom-right-radius: 4px;
+            border-bottom: 1px solid ${colors.gray300};
+            .trigger {
+              border-bottom-left-radius: 4px;
+              border-bottom-right-radius: 4px;
+            }
           }
         `}
       >
@@ -93,20 +106,33 @@ function AccordionTrigger({ children }: { children: string }) {
 
   return (
     <div
+      className="trigger"
       css={css`
-        padding: 8px 16px;
-        color: ${colors.primary};
+        padding: 8px 12px;
+        color: ${colors.heading};
         background: ${isExpanded && colors.secondary};
+        border-radius: ${isExpanded && 0} !important;
+        transition: ${isExpanded ? "all 0.5s ease-in" : "all 0.3s ease-out 0.2s"};
         cursor: pointer;
         :hover {
-          color: red;
+          background-color: ${colors.outline};
+        }
+        font-size: 12px;
+        font-weight: 600;
+
+        display: flex;
+        justify-content: space-between;
+
+        svg {
+          color: ${colors.gray500};
         }
       `}
       onClick={() => {
         item.setter(value);
       }}
     >
-      <span>asdfasdfas</span>
+      <span>{children}</span>
+      {isExpanded ? <IoIosArrowUp /> : <IoIosArrowDown />}
     </div>
   );
 }
@@ -122,15 +148,16 @@ function AccordionContent({ children }: PropsWithChildren) {
     <div
       ref={ref}
       css={css`
-        color: ${isExpanded ? colors.gray700 : colors.white};
-        max-height: ${isExpanded ? "100%" : "0px"};
+        max-height: ${!isExpanded ? "0px" : "1000px"};
         overflow: hidden;
-        transition: all 0.5s ease;
+        transition: ${isExpanded ? "all 0.5s ease-in" : "all 0.3s ease-out"};
+        transition-delay: 0;
       `}
     >
       <div
         css={css`
-          padding: 8px 16px;
+          padding: 8px 12px;
+          font-size: 11px;
         `}
       >
         {children}
