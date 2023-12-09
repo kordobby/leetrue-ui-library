@@ -5,7 +5,6 @@ const siderStyle = css`
   height: 100vh;
   box-sizing: border-box;
   min-width: 250px;
-  background-color: blue;
   .scroll-box {
     width: 250px;
     position: fixed;

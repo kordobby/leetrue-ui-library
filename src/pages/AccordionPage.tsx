@@ -1,6 +1,7 @@
 import { css } from "@emotion/react";
 import * as Accordion from "../components/@core/accordion/Accordion";
 import PageLayout from "components/layout/PageLayout";
+import { Divider } from "components/@elements/Divider";
 export function AccordionPage() {
   return (
     <PageLayout>
@@ -9,7 +10,7 @@ export function AccordionPage() {
 
       <PageLayout.Item>
         <PageLayout.SubTitle>컴파운드 컴포넌트 패턴</PageLayout.SubTitle>
-        <PageLayout.Desc>여러 개의 아이템을 열어둘 수 있는 타입의 아코디언입니다.</PageLayout.Desc>
+        <PageLayout.SubDesc>여러 개의 아이템을 열어둘 수 있는 타입의 아코디언입니다.</PageLayout.SubDesc>
         <Accordion.Root>
           <Accordion.Item value={"option-1"}>
             <Accordion.Trigger>좋아하는 가수는 누구인가요?</Accordion.Trigger>
@@ -43,9 +44,10 @@ export function AccordionPage() {
           </Accordion.Item>
         </Accordion.Root>
       </PageLayout.Item>
+      <Divider />
       <PageLayout.Item>
-        <PageLayout.SubTitle>컴파운드 컴포넌트 패턴</PageLayout.SubTitle>
-        <PageLayout.Desc>여러 개의 아이템을 열어둘 수 있는 타입의 아코디언입니다.</PageLayout.Desc>
+        <PageLayout.SubTitle>state만 사용해서 만들기</PageLayout.SubTitle>
+        <PageLayout.SubDesc>이번에는 하나의 아이템을 열어둘 수 있는 타입의 아코디언입니다.</PageLayout.SubDesc>
         <Accordion.Root>
           <Accordion.Item value={"option-1"}>
             <Accordion.Trigger>좋아하는 가수는 누구인가요?</Accordion.Trigger>

@@ -9,9 +9,10 @@ function PageLayout({ children }: PropsWithChildren) {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        gap: 4px;
+
         height: 100%;
         width: 100%;
-        gap: 4px;
 
         box-sizing: border-box;
         padding: 40px 80px;
@@ -49,11 +50,22 @@ function Desc({ children }: { children: string }) {
   return <p>{children}</p>;
 }
 
+function SubDesc({ children }: { children: string }) {
+  return <p>👉🏻 {children}</p>;
+}
 function Item({ children }: PropsWithChildren) {
   return (
     <div
       css={css`
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
         padding: 10px 0px;
+
+        p {
+          margin-top: 4px !important;
+        }
       `}
     >
       {children}
@@ -64,6 +76,7 @@ function Item({ children }: PropsWithChildren) {
 PageLayout.Title = Title;
 PageLayout.SubTitle = SubTitle;
 PageLayout.Desc = Desc;
+PageLayout.SubDesc = SubDesc;
 PageLayout.Item = Item;
 
 export default PageLayout;
