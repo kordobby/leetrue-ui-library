@@ -26,7 +26,6 @@ export function Header() {
   return (
     <div css={style}>
       <div css={logoStyle}>LEETRUE</div>
-      <Button onClick={modal.onOpen}></Button>
       <Modal.Root context={modal}>
         <Modal.Trigger block={false} btnType="primary">
           Docs
