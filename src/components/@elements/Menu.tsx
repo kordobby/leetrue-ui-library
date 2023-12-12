@@ -4,6 +4,7 @@ import colors from "constants/colors";
 const data = [
   { id: "accordion", name: "Accordion", path: "/component/accordion" },
   { id: "modal", name: "Modal", path: "/component/modal" },
+  { id: "tooltip", name: "Tooptip", path: "/component/tooltip" },
 ];
 export function Menu() {
   return (
