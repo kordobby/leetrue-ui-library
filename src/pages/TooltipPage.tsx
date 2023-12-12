@@ -6,8 +6,8 @@ import { IoMdHelpCircle } from "react-icons/io";
 export function TooltipPage() {
   return (
     <PageLayout>
-      <PageLayout.Title>Accordion</PageLayout.Title>
-      <PageLayout.Desc>아코디언 컴포넌트입니다.</PageLayout.Desc>
+      <PageLayout.Title>Tooltip</PageLayout.Title>
+      <PageLayout.Desc>툴팁 컴포넌트입니다.</PageLayout.Desc>
 
       <PageLayout.Item>
         <PageLayout.SubTitle>마우스를 올리고 내렸을 때</PageLayout.SubTitle>

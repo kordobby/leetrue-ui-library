@@ -40,11 +40,6 @@ function TooltipRoot({ children }: PropsWithChildren) {
 
           width: 100%;
         `}
-        onMouseLeave={throttle(() => {
-          if (open) {
-            setter(false);
-          }
-        }, 3000)}
       >
         {children}
       </div>
@@ -60,6 +55,11 @@ function TooltipHoverTrigger({ children }: PropsWithChildren) {
       css={css`
         padding: 0;
       `}
+      onMouseLeave={throttle(() => {
+        if (value) {
+          setter(false);
+        }
+      }, 3000)}
     >
       <div
         onMouseEnter={throttle((event) => {
@@ -67,7 +67,7 @@ function TooltipHoverTrigger({ children }: PropsWithChildren) {
           if (!value) {
             setter(true);
           }
-        }, 2000)}
+        }, 3000)}
       >
         {children}
       </div>
