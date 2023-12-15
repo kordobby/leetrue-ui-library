@@ -1,8 +1,6 @@
 import { css } from "@emotion/react";
 import colors from "constants/colors";
 import { PropsWithChildren, createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { throttle } from "lodash";
 
 interface TooltipContextType {
   value: boolean;
@@ -37,7 +35,6 @@ function TooltipRoot({ children }: PropsWithChildren) {
             color: ${colors.primary};
           }
           display: block;
-
           width: 100%;
         `}
       >
@@ -48,29 +45,22 @@ function TooltipRoot({ children }: PropsWithChildren) {
 }
 
 function TooltipHoverTrigger({ children }: PropsWithChildren) {
-  const { value, setter } = useTooltipContext();
+  const { setter } = useTooltipContext();
 
+  const ref = useRef<HTMLButtonElement>(null);
   return (
     <button
       css={css`
         padding: 0;
+        margin: 0;
+        width: 18px;
+        height: 18px;
       `}
-      onMouseLeave={throttle(() => {
-        if (value) {
-          setter(false);
-        }
-      }, 3000)}
+      ref={ref}
+      onMouseEnter={() => setter(true)}
+      onMouseLeave={() => setter(false)}
     >
-      <div
-        onMouseEnter={throttle((event) => {
-          event.stopPropagation();
-          if (!value) {
-            setter(true);
-          }
-        }, 3000)}
-      >
-        {children}
-      </div>
+      {children}
     </button>
   );
 }
@@ -93,6 +83,12 @@ function TooltipClickTrigger({ children }: PropsWithChildren) {
 
   return (
     <button
+      css={css`
+        padding: 0;
+        margin: 0;
+        width: 18px;
+        height: 18px;
+      `}
       ref={ref}
       onClick={() => {
         setter(!value);
@@ -117,8 +113,8 @@ function TooltipContent({ children }: TooltipContentProps) {
   return (
     <div
       css={css`
-        top: 8px;
-        left: 0.5px;
+        top: 18px;
+        left: -6px;
         position: absolute;
         z-index: 1;
       `}
@@ -128,7 +124,7 @@ function TooltipContent({ children }: TooltipContentProps) {
           width: 0;
           height: 0;
           border-bottom: 10px solid ${colors.outline};
-          border-top: 10px solid transparent;
+          border-top: 10x solid transparent;
           border-left: 6px solid transparent;
           border-right: 6px solid transparent;
           margin-left: 8px;
