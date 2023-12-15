@@ -99,7 +99,7 @@ function TooltipClickTrigger({ children }: PropsWithChildren) {
   );
 }
 
-type TooltipPositionType = "left-top" | "top" | "right-top" | "left-bottom" | "bottom" | "right-bottom";
+// type TooltipPositionType = "left-top" | "top" | "right-top" | "left-bottom" | "bottom" | "right-bottom";
 
 interface TooltipContentProps extends PropsWithChildren {
   // position: TooltipPositionType;

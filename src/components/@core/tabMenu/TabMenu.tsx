@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 import colors from "constants/colors";
-import { PropsWithChildren, ReactNode, createContext, useCallback, useContext, useState } from "react";
+import { PropsWithChildren, createContext, useCallback, useContext, useState } from "react";
 
 interface TabMenuContextType {
   value: string;
