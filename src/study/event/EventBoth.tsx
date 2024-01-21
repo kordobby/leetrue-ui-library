@@ -14,7 +14,7 @@ const useLogEvent = (target: string) => {
   return { logBubbling, logCapturing };
 };
 
-export function EventCapturing() {
+export function EventBoth() {
   return (
     <section>
       <GrandParent>
@@ -27,15 +27,15 @@ export function EventCapturing() {
 }
 
 function GrandParent(props: PropsWithChildren) {
-  const { logCapturing } = useLogEvent("grand");
+  const { logBubbling, logCapturing } = useLogEvent("grand");
   return (
     <div
       css={css`
         padding: 20px;
         border: 1px solid ${colors.primary};
       `}
+      onClick={logBubbling}
       onClickCapture={logCapturing}
-      //   onClick={logEvent}
     >
       {props.children}
     </div>
@@ -43,7 +43,7 @@ function GrandParent(props: PropsWithChildren) {
 }
 
 function Parent(props: PropsWithChildren) {
-  const { logCapturing } = useLogEvent("parent");
+  const { logBubbling, logCapturing } = useLogEvent("parent");
 
   return (
     <div
@@ -51,6 +51,7 @@ function Parent(props: PropsWithChildren) {
         padding: 20px;
         border: 1px solid ${colors.heading};
       `}
+      onClick={logBubbling}
       onClickCapture={logCapturing}
     >
       {props.children}
@@ -59,7 +60,9 @@ function Parent(props: PropsWithChildren) {
 }
 
 function Baby() {
-  const { logCapturing } = useLogEvent("baby");
+  const onClickBaby = () => {
+    console.log("***log Baby Component***");
+  };
 
   return (
     <div
@@ -67,7 +70,7 @@ function Baby() {
         padding: 20px;
         border: 1px solid ${colors.heading};
       `}
-      onClickCapture={logCapturing}
+      onClick={onClickBaby}
     ></div>
   );
 }

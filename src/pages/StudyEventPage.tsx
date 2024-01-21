@@ -1,5 +1,7 @@
 import { EventBubbling } from "study/event/EventBubbling";
 import PageLayout from "components/layout/PageLayout";
+import { EventCapturing } from "study/event/EventCapturing";
+import { EventBoth } from "study/event/EventBoth";
 export function StudyEventPage() {
   return (
     <PageLayout>
@@ -16,7 +18,12 @@ export function StudyEventPage() {
       <PageLayout.Item>
         <PageLayout.SubTitle>이벤트 캡쳐링을 알아보자.</PageLayout.SubTitle>
         <PageLayout.SubDesc>이벤트 버블링과 반대방향으로 진행되는 이벤트 전파 방식</PageLayout.SubDesc>
-        <EventBubbling />
+        <EventCapturing />
+      </PageLayout.Item>
+      <PageLayout.Item>
+        <PageLayout.SubTitle>이벤트 캡쳐링을 알아보자.</PageLayout.SubTitle>
+        <PageLayout.SubDesc>이벤트 버블링과 반대방향으로 진행되는 이벤트 전파 방식</PageLayout.SubDesc>
+        <EventBoth />
       </PageLayout.Item>
     </PageLayout>
   );
