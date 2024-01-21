@@ -6,6 +6,7 @@ const data = [
   { id: "modal", name: "Modal", path: "/component/modal" },
   { id: "tooltip", name: "Tooltip", path: "/component/tooltip" },
   { id: "tabmenu", name: "TabMenu", path: "/component/tabmenu" },
+  { id: "event-study", name: "Event", path: "/study/event" },
 ];
 export function Menu() {
   return (

@@ -1,4 +1,5 @@
 import { AccordionPage } from "pages/AccordionPage";
+import { StudyEventPage } from "pages/StudyEventPage";
 import { TabMenuPage } from "pages/TabMenuPage";
 import { TooltipPage } from "pages/TooltipPage";
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -9,6 +10,7 @@ function Router() {
       <Route path={"/component/accordion"} element={<AccordionPage />} />
       <Route path={"/component/tooltip"} element={<TooltipPage />} />
       <Route path={"/component/tabmenu"} element={<TabMenuPage />} />
+      <Route path={"/study/event"} element={<StudyEventPage />} />
     </Routes>
   );
 }
